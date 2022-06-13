@@ -18,7 +18,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name = "tb_usuarios")
-public class Usuario 
+public class Usuario
 {
 
 	@Id
@@ -32,7 +32,6 @@ public class Usuario
 	@Email(message = "O atributo Usuário deve ser um email válido!")
 	private String usuario;
 
-
 	@NotBlank(message = "O atributo Senha é Obrigatório!")
 	@Size(min = 8, message = "A Senha deve ter no mínimo 8 caracteres")
 	private String senha;
@@ -42,6 +41,21 @@ public class Usuario
 	@OneToMany(mappedBy = "usuario", cascade = CascadeType.REMOVE)
 	@JsonIgnoreProperties("usuario")
 	private List<Postagem> postagem;
+
+	// Primeiro método Construtor
+
+	public Usuario(Long id, String nome, String usuario, String senha, String foto)
+	{
+		this.id = id;
+		this.nome = nome;
+		this.usuario = usuario;
+		this.senha = senha;
+		this.foto = foto;
+	}
+
+	// Segundo método Construtor
+
+	public Usuario() {	}
 
 	public Long getId()
 	{
@@ -102,6 +116,5 @@ public class Usuario
 	{
 		this.postagem = postagem;
 	}
-	
-	
+
 }
