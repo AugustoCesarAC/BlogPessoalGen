@@ -23,8 +23,8 @@ public class SwaggerConfig
 				.info(new Info().title("Projeto Blog Pessoal").description("Projeto Blog Pessoal - Generation Brasil")
 						.version("v0.0.1")
 						.license(new License().name("Generation Brasil").url("https://brazil.generation.org/"))
-						.contact(new Contact().name("Conteudo Generation").url("https://github.com/conteudoGeneration")
-								.email("conteudogeneration@gmail.com")))
+						.contact(new Contact().name("Augusto Cesar da Silva Luis").url("https://github.com/AugustoCesarAC")
+								.email("acsilvaluis@gmail.com")))
 				.externalDocs(new ExternalDocumentation().description("Github")
 						.url("https://github.com/conteudoGeneration/"));
 	}
