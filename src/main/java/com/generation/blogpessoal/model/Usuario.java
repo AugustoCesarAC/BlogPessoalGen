@@ -23,6 +23,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 public class Usuario
 {
 
+	//
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
