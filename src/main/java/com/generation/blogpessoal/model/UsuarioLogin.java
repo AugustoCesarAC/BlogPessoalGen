@@ -23,8 +23,10 @@ public class UsuarioLogin
 	private String foto;
 
 	private String token;
+	
+	private String tipo;
 
-	public UsuarioLogin(Long id, String nome, String usuario, String senha, String foto, String token)
+	public UsuarioLogin(Long id, String nome, String usuario, String senha, String foto, String token, String tipo)
 	{
 		this.id = id;
 		this.nome = nome;
@@ -32,6 +34,7 @@ public class UsuarioLogin
 		this.senha = senha;
 		this.foto = foto;
 		this.token = token;
+		this.tipo = tipo;
 	}
 
 	// Segundo método Construtor
@@ -54,6 +57,16 @@ public class UsuarioLogin
 	public void setId(Long id)
 	{
 		this.id = id;
+	}
+
+	public String getTipo()
+	{
+		return tipo;
+	}
+
+	public void setTipo(String tipo)
+	{
+		this.tipo = tipo;
 	}
 
 	public String getNome()
