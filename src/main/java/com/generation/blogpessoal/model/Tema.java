@@ -24,7 +24,7 @@ public class Tema
 	private Long id;
 	
 	@NotBlank(message = "A descrição precisa ser preenchida")
-	@Size(min = 10, max = 1000, message = "A descrição precisa ter no minimo 10 e no maximo 1000 caractéres")
+	@Size(min = 4, max = 1000, message = "A descrição precisa ter no minimo 10 e no maximo 1000 caractéres")
 	private String descricao;
 	
 	@OneToMany(mappedBy = "tema", cascade = CascadeType.REMOVE)
