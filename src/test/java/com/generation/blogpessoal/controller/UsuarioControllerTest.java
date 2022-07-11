@@ -63,7 +63,7 @@ public class UsuarioControllerTest
 
 		// JSON que você insere no Insomnia/Postman
 		HttpEntity<Usuario> requisicao = new HttpEntity<Usuario>(new Usuario(0L, "Paulo Antunes",
-				"paulo_antunes@email.com.br", "13465278", "https://i.imgur.com/JR7kUFU.jpg"));
+				"paulo_antunes@email.com.br", "13465278", "https://i.imgur.com/JR7kUFU.jpg", null));
 
 		// Configuração da Requisição (Endereço do endpoint, o verbo, o corpo da
 		// requisição
@@ -84,10 +84,10 @@ public class UsuarioControllerTest
 	{
 
 		usuarioService.cadastrarUsuario(new Usuario(0L, "Maria da Silva", "maria_silva@email.com.br", "13465278",
-				"https://i.imgur.com/T12NIp9.jpg"));
+				"https://i.imgur.com/T12NIp9.jpg", null));
 
 		HttpEntity<Usuario> requisicao = new HttpEntity<Usuario>(new Usuario(0L, "Maria da Silva",
-				"maria_silva@email.com.br", "13465278", "https://i.imgur.com/T12NIp9.jpg"));
+				"maria_silva@email.com.br", "13465278", "https://i.imgur.com/T12NIp9.jpg", null));
 
 		ResponseEntity<Usuario> resposta = testRestTemplate.exchange("/usuarios/cadastrar", HttpMethod.POST, requisicao,
 				Usuario.class);
@@ -102,10 +102,10 @@ public class UsuarioControllerTest
 	{
 
 		Optional<Usuario> usuarioCreate = usuarioService.cadastrarUsuario(new Usuario(0L, "Juliana Andrews",
-				"juliana_andrews@email.com.br", "juliana123", "https://i.imgur.com/yDRVeK7.jpg"));
+				"juliana_andrews@email.com.br", "juliana123", "https://i.imgur.com/yDRVeK7.jpg", null));
 
 		Usuario usuarioUpdate = new Usuario(usuarioCreate.get().getId(), "Juliana Andrews Ramos",
-				"juliana_ramos@email.com.br", "juliana123", "https://i.imgur.com/yDRVeK7.jpg");
+				"juliana_ramos@email.com.br", "juliana123", "https://i.imgur.com/yDRVeK7.jpg", null);
 
 		HttpEntity<Usuario> requisicao = new HttpEntity<Usuario>(usuarioUpdate);
 
@@ -123,10 +123,10 @@ public class UsuarioControllerTest
 	public void deveMostrarTodosUsuarios()
 	{
 		usuarioService.cadastrarUsuario(new Usuario(0L, "Sabrina Sanches", "sabrina_sanches@email.com.br", "sabrina123",
-				"https://i.imgur.com/5M2p5Wb.jpg"));
+				"https://i.imgur.com/5M2p5Wb.jpg", null));
 
 		usuarioService.cadastrarUsuario(new Usuario(0L, "Ricardo Marques", "ricardo_marques@email.com.br", "ricardo123",
-				"https://i.imgur.com/Sk5SjWE.jpg"));
+				"https://i.imgur.com/Sk5SjWE.jpg", null));
 
 		ResponseEntity<String> resposta = testRestTemplate.withBasicAuth("root", "root").exchange("/usuarios/all",
 				HttpMethod.GET, null, String.class);
@@ -140,7 +140,7 @@ public class UsuarioControllerTest
 	public void deveMostrarUsuarioPorID()
 	{
 		usuarioService.cadastrarUsuario(new Usuario(0L, "Beatriz Canuto", "beacanuto@email.com.br", "beatriz123",
-				"https://i.imgur.com/5M2p5Wb.jpg"));
+				"https://i.imgur.com/5M2p5Wb.jpg", null));
 
 		ResponseEntity<String> resposta = testRestTemplate.withBasicAuth("root", "root").exchange("/usuarios/6",
 				HttpMethod.GET, null, String.class);
@@ -154,7 +154,7 @@ public class UsuarioControllerTest
 	public void deveLogarUsuario()
 	{
 		usuarioService.cadastrarUsuario(new Usuario(0L, "Augusto Cesar", "acsilvaluis@email.com.br", "augusto123",
-				"https://i.imgur.com/5M2p5Wb.jpg"));
+				"https://i.imgur.com/5M2p5Wb.jpg", null));
 			
 //		String token = gerarBasicToken(usuarioCreate.get().getUsuario(), usuarioCreate.get().getSenha());
 		
@@ -165,7 +165,7 @@ public class UsuarioControllerTest
 //		Optional<UsuarioLogin> usuarioAuth = usuarioService.autenticarUsuario(Optional.of(usuarioLogar));
 		
 		HttpEntity<UsuarioLogin> requisicao = 
-				new HttpEntity<UsuarioLogin>(new UsuarioLogin(null,null,"acsilvaluis@email.com.br","augusto123",null,null));
+				new HttpEntity<UsuarioLogin>(new UsuarioLogin(null,null,"acsilvaluis@email.com.br","augusto123",null,null, null));
 		
 		ResponseEntity<String> resposta = testRestTemplate
 				.withBasicAuth(requisicao.getBody().getUsuario(), requisicao.getBody().getSenha())
