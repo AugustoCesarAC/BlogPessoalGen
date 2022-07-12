@@ -164,6 +164,7 @@ public class BasicSecurityConfig extends WebSecurityConfigurerAdapter
 //			.antMatchers("/**").permitAll()
 			.antMatchers("/usuarios/logar").permitAll()
 			.antMatchers("/usuarios/cadastrar").permitAll()
+			.antMatchers(HttpMethod.PUT, "/usuarios/atualizar").permitAll()
 			.antMatchers(HttpMethod.GET, "/usuarios/*").permitAll()
 			.antMatchers(HttpMethod.GET, "/postagens").permitAll()
 			.antMatchers(HttpMethod.GET, "/temas").permitAll()
